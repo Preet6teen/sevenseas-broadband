@@ -1,0 +1,164 @@
+/**
+ * Sevenseas Broadband Design System — Typography
+ * Space Grotesk (Headings, Numerics, Buttons) & Inter (Body, UI, Metadata)
+ * Modern, tech-focused typography pair
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+/* Base Body Setup */
+html {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: var(--leading-normal);
+  color: var(--color-ink);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  color: var(--color-ink);
+  background-color: var(--color-bg);
+}
+
+/* Headings (Manrope) */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6,
+.display-title {
+  font-family: var(--font-heading);
+  color: var(--color-navy);
+  font-weight: var(--weight-extrabold);
+  line-height: var(--leading-tight);
+  letter-spacing: -0.025em;
+  margin-top: 0;
+  margin-bottom: var(--space-4);
+}
+
+.display-title {
+  font-size: var(--text-display);
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+}
+
+h1, .h1 {
+  font-size: var(--text-4xl);
+}
+
+h2, .h2 {
+  font-size: var(--text-3xl);
+  letter-spacing: -0.02em;
+}
+
+h3, .h3 {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  letter-spacing: -0.015em;
+}
+
+h4, .h4 {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+}
+
+h5, .h5 {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+}
+
+h6, .h6 {
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.01em;
+}
+
+/* Editorial Subheadings & Leads */
+.lead {
+  font-size: clamp(1.05rem, 0.98rem + 0.35vw, 1.25rem);
+  line-height: 1.6;
+  color: var(--color-muted);
+  max-width: 60ch;
+}
+
+.subheading-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-orange-text);
+  background-color: var(--tint-orange);
+  padding: 0.35rem 0.95rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(245, 124, 0, 0.25);
+  margin-bottom: var(--space-3);
+}
+
+/* Body & Text Utilities */
+p {
+  margin-top: 0;
+  margin-bottom: var(--space-4);
+  color: var(--color-ink);
+}
+
+p.secondary,
+.text-muted {
+  color: var(--color-muted);
+}
+
+.text-navy {
+  color: var(--color-navy);
+}
+
+.text-orange {
+  color: var(--color-orange-text); /* Accessible WCAG text */
+}
+
+.text-emerald {
+  color: var(--color-emerald-text); /* Accessible WCAG text */
+}
+
+.text-danger {
+  color: var(--color-danger);
+}
+
+/* Numerical Pricing & Broadband Speed Displays */
+.stat-number,
+.price-value,
+.speed-number {
+  font-family: var(--font-numeric);
+  font-weight: var(--weight-extrabold);
+  letter-spacing: -0.03em;
+  line-height: var(--leading-none);
+  color: var(--color-navy);
+}
+
+.stat-unit,
+.price-unit,
+.speed-unit {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Editorial Blockquote / Pull Quote */
+.editorial-quote {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  color: var(--color-navy);
+  border-left: 4px solid var(--color-orange);
+  padding-left: var(--space-5);
+  margin: var(--space-6) 0;
+}

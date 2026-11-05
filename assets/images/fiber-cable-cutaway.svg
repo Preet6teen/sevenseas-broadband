@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" width="100%" height="100%" role="img" aria-label="Sevenseas Pure Optical Fiber Architecture Illustration">
+  <defs>
+    <linearGradient id="fiberCoreGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F57C00" />
+      <stop offset="50%" stop-color="#FFB74D" />
+      <stop offset="100%" stop-color="#0F9D75" />
+    </linearGradient>
+    <linearGradient id="jacketGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E3050" />
+      <stop offset="100%" stop-color="#0F1B2D" />
+    </linearGradient>
+    <radialGradient id="lightPulse" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.9" />
+      <stop offset="60%" stop-color="#F57C00" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#F57C00" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="400" height="240" rx="12" fill="#F7F8FC" stroke="#E3E8F0" stroke-width="1.5" />
+
+  <!-- Outer Protective Polymer Jacket -->
+  <path d="M 40 120 C 40 85, 120 85, 120 120 C 120 155, 40 155, 40 120 Z" fill="url(#jacketGrad)" />
+  <rect x="70" y="85" width="80" height="70" fill="url(#jacketGrad)" />
+  
+  <!-- Aramid Kevlar Strength Layer (Orange) -->
+  <path d="M 150 120 C 150 93, 200 93, 200 120 C 200 147, 150 147, 150 120 Z" fill="#F57C00" />
+  <rect x="175" y="93" width="70" height="54" fill="#F57C00" />
+
+  <!-- Buffer Tube Cladding (Navy Light) -->
+  <path d="M 245 120 C 245 101, 280 101, 280 120 C 280 139, 245 139, 245 120 Z" fill="#2A436B" />
+  <rect x="262" y="101" width="60" height="38" fill="#2A436B" />
+
+  <!-- Silica Glass Optical Core (Glowing Symmetrical Beam) -->
+  <path d="M 322 108 L 380 108 A 12 12 0 0 1 380 132 L 322 132 Z" fill="url(#fiberCoreGrad)" />
+  <circle cx="380" cy="120" r="14" fill="url(#lightPulse)" />
+  <circle cx="380" cy="120" r="4" fill="#FFFFFF" />
+
+  <!-- Technical Annotation Labels -->
+  <text x="75" y="60" font-family="'Manrope', sans-serif" font-size="11" font-weight="700" fill="#1E3050">LSZH Jacket</text>
+  <line x1="95" y1="66" x2="95" y2="84" stroke="#5B6B82" stroke-width="1" stroke-dasharray="2,2" />
+
+  <text x="175" y="60" font-family="'Manrope', sans-serif" font-size="11" font-weight="700" fill="#B85600">Kevlar Yarn</text>
+  <line x1="205" y1="66" x2="205" y2="92" stroke="#F57C00" stroke-width="1" stroke-dasharray="2,2" />
+
+  <text x="260" y="60" font-family="'Manrope', sans-serif" font-size="11" font-weight="700" fill="#1E3050">Silica Cladding</text>
+  <line x1="290" y1="66" x2="290" y2="100" stroke="#5B6B82" stroke-width="1" stroke-dasharray="2,2" />
+
+  <text x="325" y="185" font-family="'Manrope', sans-serif" font-size="11" font-weight="800" fill="#0B7A5C">Optical Glass Core (9µm)</text>
+  <line x1="365" y1="172" x2="365" y2="135" stroke="#0F9D75" stroke-width="1" stroke-dasharray="2,2" />
+
+  <!-- Speed Metric Badge -->
+  <rect x="20" y="185" width="130" height="32" rx="16" fill="#E6F6F0" stroke="rgba(15, 157, 117, 0.3)" />
+  <circle cx="36" cy="201" r="5" fill="#0F9D75" />
+  <text x="48" y="205" font-family="'Manrope', sans-serif" font-size="11" font-weight="700" fill="#0B7A5C">100% Optical Glass</text>
+</svg>

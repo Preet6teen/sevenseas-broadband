@@ -1,0 +1,108 @@
+/**
+ * Sevenseas Broadband — Custom Icon System (Lucide-based)
+ * Phase 2 Requirements: Consistent stroke thickness, sizing, alignment, accessibility
+ */
+
+:root {
+  --icon-size-xs: 14px;
+  --icon-size-sm: 18px;
+  --icon-size-md: 24px;
+  --icon-size-lg: 32px;
+  --icon-size-xl: 40px;
+  --icon-size-2xl: 48px;
+
+  --icon-stroke-default: 2px;
+  --icon-stroke-thin: 1.5px;
+  --icon-stroke-bold: 2.5px;
+}
+
+/* Base Icon Element */
+.icon,
+svg.lucide {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: -0.125em; /* Optical alignment with text */
+  width: var(--icon-size-md);
+  height: var(--icon-size-md);
+  stroke-width: var(--icon-stroke-default);
+  stroke: currentColor;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+  transition: stroke var(--transition-fast), transform var(--transition-fast);
+}
+
+/* Sizing Modifiers */
+.icon-xs { width: var(--icon-size-xs); height: var(--icon-size-xs); stroke-width: 2.2px; }
+.icon-sm { width: var(--icon-size-sm); height: var(--icon-size-sm); }
+.icon-md { width: var(--icon-size-md); height: var(--icon-size-md); }
+.icon-lg { width: var(--icon-size-lg); height: var(--icon-size-lg); }
+.icon-xl { width: var(--icon-size-xl); height: var(--icon-size-xl); }
+.icon-2xl { width: var(--icon-size-2xl); height: var(--icon-size-2xl); }
+
+/* Color Token Modifiers */
+.icon-navy { color: var(--color-navy); }
+.icon-orange { color: var(--color-orange); }
+.icon-emerald { color: var(--color-emerald); }
+.icon-violet { color: var(--color-violet); }
+.icon-muted { color: var(--color-muted); }
+.icon-white { color: var(--color-white); }
+
+/* Icon Badge / Box Container */
+.icon-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  background-color: var(--tint-navy);
+  color: var(--color-navy);
+  border: 1px solid var(--color-border);
+  flex-shrink: 0;
+  transition: all var(--transition-fast);
+}
+
+.icon-box-orange {
+  background-color: var(--tint-orange);
+  color: var(--color-orange);
+  border-color: rgba(245, 124, 0, 0.2);
+}
+
+.icon-box-emerald {
+  background-color: var(--tint-emerald);
+  color: var(--color-emerald);
+  border-color: rgba(15, 157, 117, 0.2);
+}
+
+.icon-box-violet {
+  background-color: var(--tint-violet);
+  color: var(--color-violet);
+  border-color: rgba(91, 63, 209, 0.2);
+}
+
+.icon-box-lg {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-md);
+}
+
+.icon-box-lg svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* Accessibility: Visually hidden text for screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

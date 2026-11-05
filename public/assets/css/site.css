@@ -280,17 +280,60 @@ img, video, svg, canvas {
   gap: var(--space-3);
 }
 
-/* Mobile Hamburger Button */
+/* Mobile Hamburger Button (Task 09 Refined: Standard 3-Bar Accessible Hamburger) */
 .mobile-menu-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: none;
-  border: 1px solid var(--color-border);
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  background: #FFFFFF;
+  border: 1.5px solid var(--color-border);
   border-radius: var(--radius-xs);
-  padding: 0.5rem;
+  padding: 0;
   color: var(--color-navy);
   cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.mobile-menu-btn:hover {
+  background-color: var(--tint-navy);
+  border-color: var(--color-navy);
+}
+
+.mobile-menu-btn:focus-visible {
+  outline: 2px solid var(--color-orange);
+  outline-offset: 2px;
+}
+
+.hamburger-svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+.hamburger-svg line {
+  stroke: var(--color-navy);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  transition: transform 0.25s ease-in-out, opacity 0.2s ease-in-out;
+  transform-origin: center;
+}
+
+/* Transform to an 'X' when drawer is active */
+.mobile-menu-btn[aria-expanded="true"] .line-top {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.mobile-menu-btn[aria-expanded="true"] .line-mid {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.mobile-menu-btn[aria-expanded="true"] .line-bot {
+  transform: translateY(-6px) rotate(-45deg);
 }
 
 @media (min-width: 1024px) {

@@ -1,0 +1,259 @@
+/**
+ * Sevenseas Broadband — Phase 1 Style Guide & Design System Presentation Styles
+ */
+
+.sg-header {
+  background-color: var(--color-navy);
+  color: var(--color-white);
+  padding: var(--space-8) 0;
+  border-bottom: 4px solid var(--color-orange);
+}
+
+.sg-header .container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .sg-header .container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.sg-nav {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.sg-nav a {
+  color: #CBD5E1;
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-sm);
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius-xs);
+  transition: all var(--transition-fast);
+}
+
+.sg-nav a:hover,
+.sg-nav a.active {
+  color: var(--color-white);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sg-nav a:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+  box-sizing: border-box;
+}
+
+.sg-section {
+  padding: var(--space-12) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.sg-section-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+
+.sg-section-desc {
+  font-size: var(--text-base);
+  color: var(--color-muted);
+  max-width: 70ch;
+  margin-bottom: var(--space-8);
+}
+
+/* Palette Swatches Grid */
+.palette-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-6);
+  margin-bottom: var(--space-8);
+}
+
+.swatch-card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.swatch-color {
+  height: 110px;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: var(--space-3);
+  box-sizing: border-box;
+}
+
+.swatch-info {
+  padding: var(--space-4);
+}
+
+.swatch-name {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-base);
+  color: var(--color-navy);
+  margin-bottom: var(--space-1);
+}
+
+.swatch-hex {
+  font-family: monospace;
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+  margin-bottom: var(--space-2);
+}
+
+.swatch-purpose {
+  font-size: var(--text-xs);
+  color: var(--color-ink);
+  line-height: var(--leading-normal);
+}
+
+.swatch-contrast {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: var(--weight-bold);
+  padding: 0.15rem 0.45rem;
+  border-radius: var(--radius-xs);
+  margin-top: var(--space-2);
+}
+
+/* Typography Specimen */
+.type-specimen {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-8);
+  margin-bottom: var(--space-6);
+}
+
+.type-row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  align-items: baseline;
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid var(--color-border);
+  gap: var(--space-4);
+}
+
+.type-label {
+  font-family: monospace;
+  font-size: var(--text-xs);
+  color: var(--color-muted);
+}
+
+/* Logo Showcase Grid */
+.logo-showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-6);
+  margin-bottom: var(--space-8);
+}
+
+.logo-display-card {
+  border-radius: var(--radius-md);
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 220px;
+  position: relative;
+  border: 1px solid var(--color-border);
+}
+
+.logo-display-card.light-surface {
+  background-color: var(--color-white);
+}
+
+.logo-display-card.navy-surface {
+  background-color: var(--color-navy);
+  color: var(--color-white);
+  border-color: #2A436B;
+}
+
+.logo-display-card.bg-surface {
+  background-color: var(--color-bg);
+}
+
+.logo-display-badge {
+  position: absolute;
+  top: 12px;
+  left: 16px;
+  font-size: 0.75rem;
+  font-family: var(--font-heading);
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+}
+
+/* Rules / Do & Don't Matrix */
+.rules-matrix {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .rules-matrix {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.rule-box {
+  background-color: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  border-top: 4px solid;
+}
+
+.rule-box.do {
+  border-top-color: var(--color-emerald);
+  box-shadow: var(--shadow-sm);
+}
+
+.rule-box.dont {
+  border-top-color: var(--color-danger);
+  box-shadow: var(--shadow-sm);
+}
+
+.rule-box h4 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.rule-list {
+  padding-left: var(--space-5);
+  margin: 0;
+  line-height: var(--leading-relaxed);
+  font-size: var(--text-sm);
+  color: var(--color-ink);
+}
+
+.rule-list li {
+  margin-bottom: var(--space-2);
+}

@@ -1,0 +1,655 @@
+/**
+ * Sevenseas Broadband Design System — UI Component Library
+ * Phase 1 Architecture: Buttons, Cards, Badges, Status Indicators, Forms
+ */
+
+/* ==========================================================================
+   Buttons (Apple-inspired Minimalist Refined Geometry & Micro-interactions)
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-heading);
+  font-size: var(--text-base);
+  font-weight: var(--weight-bold);
+  line-height: 1;
+  padding: 0.8rem 1.85rem;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--transition-normal);
+  white-space: nowrap;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.btn:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+/* Primary Orange CTA (Apple Style Pill) */
+.btn-primary {
+  background-color: var(--color-orange);
+  color: var(--color-white);
+  border-color: var(--color-orange);
+  box-shadow: 0 2px 8px rgba(245, 124, 0, 0.2);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-orange-hover);
+  border-color: var(--color-orange-hover);
+  box-shadow: 0 4px 16px rgba(245, 124, 0, 0.35);
+  transform: scale(1.02);
+}
+
+.btn-primary:active {
+  background-color: var(--color-orange-active);
+  transform: scale(0.98);
+}
+
+/* Secondary Navy Button */
+.btn-secondary {
+  background-color: var(--color-navy);
+  color: var(--color-white);
+  border-color: var(--color-navy);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-navy-hover);
+  border-color: var(--color-navy-hover);
+  transform: scale(1.02);
+}
+
+/* Emerald Availability / Success Button */
+.btn-emerald {
+  background-color: var(--color-emerald);
+  color: var(--color-white);
+  border-color: var(--color-emerald);
+  box-shadow: 0 2px 8px rgba(15, 157, 117, 0.2);
+}
+
+.btn-emerald:hover {
+  background-color: var(--color-emerald-hover);
+  border-color: var(--color-emerald-hover);
+  box-shadow: 0 4px 16px rgba(15, 157, 117, 0.35);
+  transform: scale(1.02);
+}
+
+/* Outline Variants (Apple Style Hairline Pill) */
+.btn-outline-navy {
+  background-color: transparent;
+  color: var(--color-navy);
+  border-color: rgba(30, 48, 80, 0.35);
+}
+
+.btn-outline-navy:hover {
+  background-color: var(--color-navy);
+  color: var(--color-white);
+  border-color: var(--color-navy);
+  transform: scale(1.02);
+}
+
+.btn-outline-orange {
+  background-color: transparent;
+  color: var(--color-orange-text);
+  border-color: var(--color-orange);
+}
+
+.btn-outline-orange:hover {
+  background-color: var(--color-orange);
+  color: #FFFFFF;
+  transform: scale(1.02);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-ink);
+  border-color: var(--color-border);
+}
+
+.btn-outline:hover {
+  background-color: var(--tint-navy);
+  border-color: #CBD5E1;
+  color: var(--color-navy);
+  transform: scale(1.02);
+}
+
+/* Button Sizes */
+.btn-sm {
+  font-size: 0.8125rem;
+  padding: 0.45rem 1.2rem;
+  min-height: 38px;
+}
+
+.btn-lg {
+  font-size: 1rem;
+  padding: 0.95rem 2.25rem;
+  min-height: 50px;
+}
+
+/* ==========================================================================
+   Badges, Pills & Status Indicators
+   ========================================================================== */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-heading);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-pill);
+  line-height: 1.3;
+}
+
+.badge-emerald {
+  background-color: var(--tint-emerald);
+  color: var(--color-emerald-text);
+  border: 1px solid rgba(15, 157, 117, 0.2);
+}
+
+.badge-orange {
+  background-color: var(--tint-orange);
+  color: var(--color-orange-text);
+  border: 1px solid rgba(245, 124, 0, 0.2);
+}
+
+.badge-violet {
+  background-color: var(--tint-violet);
+  color: var(--color-violet);
+  border: 1px solid rgba(91, 63, 209, 0.2);
+}
+
+.badge-navy {
+  background-color: var(--tint-navy);
+  color: var(--color-navy);
+  border: 1px solid var(--color-border);
+}
+
+/* Pulsing Live Availability Indicator */
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-emerald-text);
+}
+
+.pulse-dot {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  background-color: var(--color-emerald);
+  border-radius: 50%;
+}
+
+.pulse-dot::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--color-emerald);
+  opacity: 0.4;
+  animation: pulse-ring 2s infinite ease-out;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.6); opacity: 0.7; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* ==========================================================================
+   Surface Cards (Intentional Visual Hierarchy — Not Generic Bubbly SaaS)
+   ========================================================================== */
+.card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: #CBD5E1;
+}
+
+/* Editorial Split Card (Friendly Residential Broadband style) */
+.editorial-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+@media (min-width: 768px) {
+  .editorial-card {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+}
+
+.editorial-card-body {
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.editorial-card-aside {
+  background-color: var(--tint-navy);
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-top: 1px solid var(--color-border);
+}
+
+@media (min-width: 768px) {
+  .editorial-card-aside {
+    border-top: none;
+    border-left: 1px solid var(--color-border);
+  }
+}
+
+/* Fiber Highlight Asymmetrical Card */
+.fiber-card {
+  background: linear-gradient(145deg, #FFFFFF 0%, #FAFBFD 100%);
+  border: 1px solid var(--color-border);
+  border-top: 4px solid var(--color-navy);
+  border-radius: var(--radius-md);
+  padding: var(--space-8);
+  position: relative;
+  box-shadow: var(--shadow-sm);
+}
+
+.fiber-card.featured {
+  border-top: 4px solid var(--color-orange);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ==========================================================================
+   Form Controls & Coverage Checker Bar
+   ========================================================================== */
+.form-group {
+  margin-bottom: var(--space-4);
+}
+
+.form-label {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+  color: var(--color-navy);
+  margin-bottom: var(--space-2);
+}
+
+.form-input {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-ink);
+  background-color: var(--color-white);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--color-violet);
+  box-shadow: var(--focus-ring);
+}
+
+.form-input.is-invalid {
+  border-color: var(--color-danger);
+  background-color: #FFFDFD;
+}
+
+.form-error {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--text-xs);
+  color: var(--color-danger);
+  margin-top: var(--space-1);
+  font-weight: var(--weight-medium);
+}
+
+/* Coverage Checker Bar */
+.coverage-checker-bar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  background-color: var(--color-white);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-2);
+  box-shadow: var(--shadow-md);
+}
+
+@media (min-width: 640px) {
+  .coverage-checker-bar {
+    flex-direction: row;
+    align-items: center;
+    border-radius: var(--radius-pill);
+    padding: 0.35rem 0.5rem 0.35rem 1.25rem;
+  }
+}
+
+.coverage-checker-bar input {
+  border: none;
+  outline: none;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-ink);
+  background: transparent;
+  flex: 1;
+  padding: 0.5rem 0;
+}
+
+.coverage-checker-bar input::placeholder {
+  color: var(--color-muted);
+}
+
+/* ==========================================================================
+   Phase 5 — Enquiry Form Components & Anti-Spam Security
+   ========================================================================== */
+.visually-hidden-field {
+  position: absolute !important;
+  left: -9999px !important;
+  top: auto !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.enquiry-status-alert {
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  margin-bottom: var(--space-4);
+  display: none;
+}
+
+.enquiry-status-alert.alert-error {
+  background-color: var(--tint-danger);
+  color: var(--color-danger);
+  border: 1px solid rgba(217, 38, 28, 0.25);
+  display: block;
+}
+
+.enquiry-status-alert.alert-success {
+  background-color: var(--tint-emerald);
+  color: var(--color-emerald-text);
+  border: 1px solid rgba(15, 157, 117, 0.25);
+  display: block;
+}
+
+.form-checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: var(--text-xs);
+  color: var(--color-ink);
+  line-height: var(--leading-normal);
+  cursor: pointer;
+  user-select: none;
+  margin-top: var(--space-2);
+}
+
+.form-checkbox-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--color-orange);
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.cf-turnstile-wrap {
+  min-height: 65px;
+  margin: var(--space-4) 0;
+  display: flex;
+  justify-content: flex-start;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ==========================================================================
+   Phase 9 — Mobile Sticky Bottom Contact Bar (Call | WhatsApp | Get Connected)
+   ========================================================================== */
+.mobile-sticky-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: var(--color-white);
+  border-top: 1px solid var(--color-border);
+  box-shadow: 0 -4px 20px rgba(15, 27, 45, 0.1);
+  padding: 0.5rem 0.65rem calc(0.5rem + env(safe-area-inset-bottom, 0px));
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .mobile-sticky-bar {
+    display: none !important;
+  }
+}
+
+.mobile-sticky-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.35fr;
+  gap: 0.4rem;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.mobile-sticky-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  min-height: 44px;
+  padding: 0.5rem 0.45rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: var(--weight-bold);
+  text-decoration: none;
+  text-align: center;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+  touch-action: manipulation;
+}
+
+.mobile-sticky-call {
+  background-color: var(--tint-navy);
+  color: var(--color-navy);
+  border: 1px solid rgba(30, 48, 80, 0.15);
+}
+.mobile-sticky-call:active {
+  background-color: var(--color-navy);
+  color: #FFFFFF;
+}
+
+.mobile-sticky-whatsapp {
+  background-color: var(--tint-emerald);
+  color: var(--color-emerald-text);
+  border: 1px solid rgba(15, 157, 117, 0.25);
+}
+.mobile-sticky-whatsapp:active {
+  background-color: var(--color-emerald);
+  color: #FFFFFF;
+}
+
+.mobile-sticky-cta {
+  background-color: var(--color-orange);
+  color: #FFFFFF;
+  border: 1px solid var(--color-orange);
+  box-shadow: 0 2px 6px rgba(245, 124, 0, 0.3);
+}
+.mobile-sticky-cta:active {
+  background-color: var(--color-orange-hover);
+}
+
+/* 320px–360px Small Mobile Screens */
+@media (max-width: 360px) {
+  .mobile-sticky-inner {
+    gap: 0.25rem;
+  }
+  .mobile-sticky-btn {
+    font-size: 0.72rem;
+    padding: 0.45rem 0.25rem;
+    gap: 0.2rem;
+  }
+}
+
+/* Global Touch-Target Accessibility (>44px height) */
+@media (max-width: 767px) {
+  .btn {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .form-input {
+    font-size: 16px !important; /* Prevents auto-zoom on iOS Safari */
+    min-height: 44px;
+  }
+  .form-checkbox-label {
+    min-height: 36px;
+  }
+}
+
+/* ==========================================================================
+   Plans Page Dedicated Components (Duration Switcher & Feature Matrix)
+   ========================================================================== */
+.duration-tabs-wrapper {
+  display: inline-flex;
+  align-items: center;
+  background: #EDF2F7;
+  padding: 6px;
+  border-radius: var(--radius-pill);
+  gap: 4px;
+  margin: 0 auto var(--space-10);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.duration-tab-btn {
+  background: transparent;
+  border: none;
+  padding: 10px 22px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  outline: none;
+}
+
+.duration-tab-btn:hover {
+  color: var(--color-navy);
+}
+
+.duration-tab-btn.active {
+  background: #FFFFFF;
+  color: var(--color-navy);
+  box-shadow: 0 2px 8px rgba(15, 27, 45, 0.08);
+}
+
+.duration-tab-tag {
+  background: var(--tint-emerald);
+  color: var(--color-emerald-text);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 9999px;
+}
+
+.duration-tab-tag.orange {
+  background: var(--tint-orange);
+  color: var(--color-orange-text);
+}
+
+/* Plan Feature Matrix */
+.plan-matrix-wrapper {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  overflow-x: auto;
+  box-shadow: 0 4px 20px rgba(15, 27, 45, 0.03);
+  margin-top: var(--space-8);
+}
+
+.plan-matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: var(--text-sm);
+}
+
+.plan-matrix-table th,
+.plan-matrix-table td {
+  padding: 1.15rem 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  vertical-align: middle;
+}
+
+.plan-matrix-table thead th {
+  background: var(--tint-navy);
+  color: var(--color-navy);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: var(--text-sm);
+}
+
+.plan-matrix-table tbody tr:hover {
+  background: rgba(247, 248, 252, 0.6);
+}
+
+.plan-matrix-table td:not(:first-child),
+.plan-matrix-table th:not(:first-child) {
+  text-align: center;
+}
+
+.plan-matrix-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--tint-emerald);
+  color: var(--color-emerald-text);
+}
+
+
+

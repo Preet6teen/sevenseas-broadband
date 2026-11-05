@@ -14,7 +14,10 @@ RewriteBase /
 # 2. Route /api/enquiry to /api/enquiry.php
 RewriteRule ^api/enquiry/?$ api/enquiry.php [L,QSA]
 
-# 3. Transparent Asset Alias (/assets/... -> /public/assets/...)
+# 3. Permanent 301 Redirect for Deprecated Pages
+RewriteRule ^localities(\.html)?$ / [R=301,L]
+
+# 4. Transparent Asset Alias (/assets/... -> /public/assets/...)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^assets/(.*)$ public/assets/$1 [L]

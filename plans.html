@@ -205,8 +205,7 @@
               <li><a href="installation.html"><svg class="icon icon-sm"><use href="#icon-wrench"></use></svg> Installation Guide</a></li>
               <li><a href="support.html"><svg class="icon icon-sm"><use href="#icon-headset"></use></svg> Customer Support</a></li>
               <li><a href="faq.html"><svg class="icon icon-sm"><use href="#icon-shield-check"></use></svg> FAQs</a></li>
-              <li><a href="localities.html"><svg class="icon icon-sm"><use href="#icon-map-pinned"></use></svg> Locality Hubs</a></li>
-              <li><a href="contact.html"><svg class="icon icon-sm"><use href="#icon-phone"></use></svg> Contact Us</a></li>
+                            <li><a href="contact.html"><svg class="icon icon-sm"><use href="#icon-phone"></use></svg> Contact Us</a></li>
             </ul>
           </li>
         </ul>
@@ -216,7 +215,11 @@
       <div class="header-actions">
         <a href="new-connection.html" class="btn btn-primary btn-sm">Get Connected</a>
         <button class="mobile-menu-btn" aria-label="Toggle Navigation Menu" aria-expanded="false">
-          <svg class="icon"><use href="#icon-gauge"></use></svg>
+          <svg class="hamburger-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6" class="line-top" stroke="currentColor"/>
+            <line x1="3" y1="12" x2="21" y2="12" class="line-mid" stroke="currentColor"/>
+            <line x1="3" y1="18" x2="21" y2="18" class="line-bot" stroke="currentColor"/>
+          </svg>
         </button>
       </div>
     </div>
@@ -568,6 +571,113 @@
               </tbody>
             </table>
           </div>
+
+          <!-- Mobile-Only Long-Term Plan Cards (Task 10: Touch-Friendly & Clean) -->
+          <div class="longterm-mobile-cards" aria-label="Long-Term Commitment Savings Mobile View">
+            
+            <!-- 1 Month Card -->
+            <div class="longterm-mobile-card">
+              <div class="longterm-card-header">
+                <div>
+                  <h3 class="longterm-card-title">1 Month</h3>
+                  <span class="longterm-card-subtitle">Standard Monthly Billing</span>
+                </div>
+              </div>
+              <div class="longterm-card-tiers">
+                <div class="longterm-tier-row">
+                  <span class="longterm-tier-name">Starter (100 Mbps)</span>
+                  <div class="longterm-tier-price">₹499 <span>/ month</span></div>
+                </div>
+                <div class="longterm-tier-row">
+                  <span class="longterm-tier-name">Popular (200 Mbps)</span>
+                  <div class="longterm-tier-price">₹599 <span>/ month</span></div>
+                </div>
+                <div class="longterm-tier-row">
+                  <span class="longterm-tier-name">Premium (300 Mbps)</span>
+                  <div class="longterm-tier-price">₹699 <span>/ month</span></div>
+                </div>
+              </div>
+              <a href="new-connection.html?duration=1m" class="btn btn-outline-navy">Book 1 Month Plan</a>
+            </div>
+
+            <!-- 3 Months Card -->
+            <div class="longterm-mobile-card">
+              <div class="longterm-card-header">
+                <div>
+                  <h3 class="longterm-card-title">3 Months</h3>
+                  <span class="longterm-card-subtitle">Quarterly Subscription · Free Setup</span>
+                </div>
+              </div>
+              <div class="longterm-card-tiers">
+                <div class="longterm-tier-row">
+                  <span class="longterm-tier-name">Starter (100 Mbps)</span>
+                  <div class="longterm-tier-price">₹1,500 <span>(₹500 / mo)</span></div>
+                </div>
+                <div class="longterm-tier-row">
+                  <span class="longterm-tier-name">Popular (200 Mbps)</span>
+                  <div class="longterm-tier-price">₹1,800 <span>(₹600 / mo)</span></div>
+                </div>
+                <div class="longterm-tier-row">
+                  <span class="longterm-tier-name">Premium (300 Mbps)</span>
+                  <div class="longterm-tier-price">₹2,200 <span>(₹733 / mo)</span></div>
+                </div>
+              </div>
+              <a href="new-connection.html?duration=3m" class="btn btn-outline-navy">Book 3 Months Plan</a>
+            </div>
+
+            <!-- 6 Months Card -->
+            <div class="longterm-mobile-card is-popular">
+              <div class="longterm-card-header">
+                <div>
+                  <h3 class="longterm-card-title">6 Months</h3>
+                  <span class="longterm-card-subtitle">Semi-Annual · Free Router</span>
+                </div>
+                <span class="badge badge-orange">Save 17%</span>
+              </div>
+              <div class="longterm-card-tiers">
+                <div class="longterm-tier-row">
+                  <span class="longterm-tier-name">Starter (100 Mbps)</span>
+                  <div class="longterm-tier-price">₹2,500 <span>(₹416 / mo)</span></div>
+                </div>
+                <div class="longterm-tier-row">
+                  <span class="longterm-tier-name">Popular (200 Mbps)</span>
+                  <div class="longterm-tier-price">₹3,000 <span>(₹500 / mo)</span></div>
+                </div>
+                <div class="longterm-tier-row">
+                  <span class="longterm-tier-name">Premium (300 Mbps)</span>
+                  <div class="longterm-tier-price">₹3,500 <span>(₹583 / mo)</span></div>
+                </div>
+              </div>
+              <a href="new-connection.html?duration=6m" class="btn btn-primary">Book 6 Months Plan</a>
+            </div>
+
+            <!-- 12 Months Card -->
+            <div class="longterm-mobile-card is-best-value">
+              <div class="longterm-card-header">
+                <div>
+                  <h3 class="longterm-card-title">12 Months</h3>
+                  <span class="longterm-card-subtitle">Annual Commitment · Maximum Savings</span>
+                </div>
+                <span class="badge badge-emerald">Save 25% · Best Value</span>
+              </div>
+              <div class="longterm-card-tiers">
+                <div class="longterm-tier-row">
+                  <span class="longterm-tier-name">Starter (100 Mbps)</span>
+                  <div class="longterm-tier-price">₹4,500 <span>(₹375 / mo)</span></div>
+                </div>
+                <div class="longterm-tier-row">
+                  <span class="longterm-tier-name">Popular (200 Mbps)</span>
+                  <div class="longterm-tier-price">₹5,500 <span>(₹458 / mo)</span></div>
+                </div>
+                <div class="longterm-tier-row">
+                  <span class="longterm-tier-name">Premium (300 Mbps)</span>
+                  <div class="longterm-tier-price">₹6,500 <span>(₹541 / mo)</span></div>
+                </div>
+              </div>
+              <a href="new-connection.html?duration=12m" class="btn btn-primary">Book 12 Months Plan</a>
+            </div>
+
+          </div>
         </div>
 
         <!-- OTT ADDON BUNDLES -->
@@ -639,8 +749,8 @@
       </div>
     </section>
 
-    <!-- SECTION: BESPOKE PURPLE RIBBON CTA -->
-    <section class="purple-cta-section" id="ready-cta" aria-labelledby="cta-heading" style="border-top: 1px solid var(--color-border);">
+    <!-- SECTION: BESPOKE BRAND CTA -->
+    <section class="purple-cta-section" id="ready-cta" aria-labelledby="cta-heading">
       <img src="public/assets/images/cta-ribbon-left.svg" alt="" class="purple-cta-ribbon purple-cta-ribbon-left" width="420" height="420" aria-hidden="true" loading="lazy">
       <img src="public/assets/images/cta-ribbon-right.svg" alt="" class="purple-cta-ribbon purple-cta-ribbon-right" width="420" height="420" aria-hidden="true" loading="lazy">
 
@@ -772,8 +882,7 @@
           <h4>Customer Service</h4>
           <ul>
             <li><a href="new-connection.html">Book New Connection</a></li>
-            <li><a href="localities.html">Airoli Localities</a></li>
-            <li><a href="installation.html">Installation Process</a></li>
+                        <li><a href="installation.html">Installation Process</a></li>
             <li><a href="support.html">Customer Care Portal</a></li>
             <li><a href="support.html#quick-pay">Pay Monthly Bill Online</a></li>
             <li><a href="faq.html">Frequently Asked Questions</a></li>
@@ -802,7 +911,6 @@
           <a href="privacy.html">Privacy</a>
           <a href="terms.html">Terms of Service</a>
           <a href="refund-policy.html">Refund Policy</a>
-          <a href="localities.html">Sitemap &amp; Localities</a>
         </div>
       </div>
     </div>
