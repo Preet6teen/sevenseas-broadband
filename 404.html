@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found — Sevenseas Broadband</title>
+  <script>
+    // GitHub Pages clean URL handler: e.g. /sevenseas-broadband/plans -> /sevenseas-broadband/plans.html
+    (function() {
+      var path = window.location.pathname;
+      if (!path.endsWith('.html') && !path.endsWith('/')) {
+        var segments = path.split('/');
+        var last = segments[segments.length - 1];
+        if (last && !last.includes('.')) {
+          window.location.replace(path + '.html' + window.location.search + window.location.hash);
+        }
+      }
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="public/assets/css/design-tokens.css">
+  <link rel="stylesheet" href="public/assets/css/typography.css">
+  <link rel="stylesheet" href="public/assets/css/site.css">
+  <link rel="stylesheet" href="public/assets/css/components.css">
+  <style>
+    body {
+      background-color: var(--color-bg, #F7F8FC);
+      font-family: var(--font-body, 'Inter', sans-serif);
+      color: var(--color-ink, #0F1B2D);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .error-container {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .error-card {
+      max-width: 580px;
+      background: #FFFFFF;
+      border-radius: 16px;
+      padding: 48px 32px;
+      box-shadow: 0 10px 30px rgba(30, 48, 80, 0.08);
+      border: 1px solid var(--color-border, #E3E8F0);
+    }
+    .error-code {
+      font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+      font-size: 72px;
+      font-weight: 700;
+      color: var(--color-orange, #F57C00);
+      margin: 0 0 16px;
+      line-height: 1;
+    }
+    .error-title {
+      font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--color-navy, #1E3050);
+      margin: 0 0 16px;
+    }
+    .error-desc {
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--color-muted, #5B6B82);
+      margin: 0 0 32px;
+    }
+    .error-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+    .btn-brand {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 15px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .btn-brand-primary {
+      background-color: var(--color-orange, #F57C00);
+      color: #FFFFFF;
+    }
+    .btn-brand-primary:hover {
+      background-color: #e06d00;
+    }
+    .btn-brand-outline {
+      border: 1.5px solid var(--color-border, #E3E8F0);
+      color: var(--color-navy, #1E3050);
+      background: #FFFFFF;
+    }
+    .btn-brand-outline:hover {
+      background: #F7F8FC;
+    }
+  </style>
+</head>
+<body>
+  <div class="error-container">
+    <div class="error-card">
+      <div class="error-code">404</div>
+      <h1 class="error-title">Page Not Found</h1>
+      <p class="error-desc">
+        The page you are looking for might have been moved or is temporarily unavailable. Let's get you back to high-speed internet!
+      </p>
+      <div class="error-actions">
+        <a href="index.html" class="btn-brand btn-brand-primary">Return to Homepage</a>
+        <a href="plans.html" class="btn-brand btn-brand-outline">Explore Plans</a>
+        <a href="https://wa.me/919664985535" class="btn-brand btn-brand-outline">WhatsApp Support</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
