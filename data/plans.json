@@ -1,0 +1,109 @@
+{
+  "currency": "INR",
+  "plans": [
+    {
+      "id": "plan-100",
+      "name": "Starter",
+      "speedMbps": 100,
+      "speedDisplay": "100 Mbps",
+      "monthlyPrice": 499,
+      "threeMonthPrice": 1500,
+      "sixMonthPrice": 2500,
+      "twelveMonthPrice": 4500,
+      "isActive": true,
+      "badge": "Essential",
+      "themeColor": "navy",
+      "tagline": "Reliable unlimited connectivity for small homes and daily browsing.",
+      "benefits": [
+        "100 Mbps Symmetrical Speed",
+        "Truly Unlimited Data",
+        "High-Speed Internet",
+        "Stable Connection",
+        "Dual-Band Wi-Fi Router Included",
+        "Free Installation on Multi-Month Plans"
+      ],
+      "ctaText": "Choose Starter 100M"
+    },
+    {
+      "id": "plan-200",
+      "name": "Popular",
+      "speedMbps": 200,
+      "speedDisplay": "200 Mbps",
+      "monthlyPrice": 599,
+      "threeMonthPrice": 1800,
+      "sixMonthPrice": 3000,
+      "twelveMonthPrice": 5500,
+      "isActive": true,
+      "isPopular": true,
+      "badge": "Most Popular",
+      "themeColor": "orange",
+      "tagline": "The ideal high-speed sweet spot for modern families, streaming, and remote work.",
+      "benefits": [
+        "200 Mbps Symmetrical Speed",
+        "Truly Unlimited Data",
+        "High-Speed Internet",
+        "Stable Connection",
+        "₹0 Installation Cost Included",
+        "Free High-Performance Wi-Fi 6 Router",
+        "Instant 2-Hour Doorstep Support"
+      ],
+      "ctaText": "Choose Popular 200M"
+    },
+    {
+      "id": "plan-300",
+      "name": "Premium",
+      "speedMbps": 300,
+      "speedDisplay": "300 Mbps",
+      "monthlyPrice": 699,
+      "threeMonthPrice": 2200,
+      "sixMonthPrice": 3500,
+      "twelveMonthPrice": 6500,
+      "isActive": true,
+      "isBestSavings": true,
+      "badge": "Best for 4K & Gaming",
+      "themeColor": "violet",
+      "tagline": "Ultra-low ping and unthrottled gigabit bandwidth for 4K HDR streams and competitive gaming.",
+      "benefits": [
+        "300 Mbps Symmetrical Speed",
+        "Truly Unlimited Ultra-Fast Data",
+        "High-Speed Internet with Sub-5ms Gaming Latency",
+        "Stable Connection with Zero Buffer Multi-Stream",
+        "₹0 Installation Cost Included",
+        "Complimentary Wi-Fi 6 Gigabit Router",
+        "Priority VIP NOC Support Routing"
+      ],
+      "ctaText": "Choose Premium 300M"
+    }
+  ],
+  "longTermPricing": [
+    {
+      "duration": "3 Months",
+      "months": 3,
+      "prices": {
+        "100 Mbps": 1500,
+        "200 Mbps": 1800,
+        "300 Mbps": 2200
+      }
+    },
+    {
+      "duration": "6 Months",
+      "months": 6,
+      "badge": "Most Popular",
+      "prices": {
+        "100 Mbps": 2500,
+        "200 Mbps": 3000,
+        "300 Mbps": 3500
+      }
+    },
+    {
+      "duration": "12 Months",
+      "months": 12,
+      "badge": "Best Savings",
+      "prices": {
+        "100 Mbps": 4500,
+        "200 Mbps": 5500,
+        "300 Mbps": 6500
+      }
+    }
+  ]
+}

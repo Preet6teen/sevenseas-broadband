@@ -1,0 +1,13 @@
+# Sevenseas Broadband — Production robots.txt
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /data/
+Disallow: /config/
+Disallow: /server/
+
+# Crawl-delay for polite indexing
+Crawl-delay: 1
+
+# Canonical Sitemap Location
+Sitemap: https://sevenseasbroadband.in/sitemap.xml

@@ -1,0 +1,126 @@
+/**
+ * Sevenseas Broadband Design System — Design Tokens
+ * Master Theme Configuration & Core Variables
+ */
+
+:root {
+  /* ==========================================================================
+     Color Scheme & Base
+     ========================================================================== */
+  color-scheme: light;
+
+  /* ==========================================================================
+     Brand Palette (Section 1.3 Requirements)
+     ========================================================================== */
+  --color-navy: #1E3050;          /* Headings, structural framing, navigation, footer */
+  --color-orange: #F57C00;        /* Primary CTAs and promotions */
+  --color-orange-text: #B85600;   /* WCAG AA compliant text on light surfaces */
+  --color-emerald: #0F9D75;       /* Availability and success indicators */
+  --color-emerald-text: #0B7A5C;  /* WCAG AA compliant text on light surfaces */
+  --color-violet: #5B3FD1;        /* Focus rings, selected highlights, active states */
+
+  /* Neutral Surface & Typography Colors */
+  --color-bg: #F7F8FC;            /* Main page background */
+  --color-white: #FFFFFF;         /* Content cards and elevated surfaces */
+  --color-ink: #0F1B2D;           /* High-contrast body text */
+  --color-muted: #5B6B82;         /* Supporting/secondary text */
+  --color-border: #E3E8F0;        /* Card and input borders */
+  --color-danger: #D9261C;        /* Form validation errors and alerts */
+
+  /* Brand Tints (Soft Backgrounds) */
+  --tint-orange: #FFF3E5;         /* Promo badges, subtle action highlights */
+  --tint-emerald: #E6F6F0;        /* Coverage success pills, verified tags */
+  --tint-violet: #EEEBFB;         /* Selected filters, focus halo fill */
+  --tint-danger: #FDE8E8;         /* Error notification callouts */
+  --tint-navy: #EDF1F7;           /* Neutral structural tint */
+
+  /* Interactive States */
+  --color-orange-hover: #E06F00;
+  --color-orange-active: #CC6200;
+  --color-navy-hover: #16243C;
+  --color-navy-active: #101B2E;
+  --color-emerald-hover: #0C8563;
+  --color-violet-hover: #4E34B5;
+
+  /* ==========================================================================
+     Typography System (Modern Tech-Focused: Space Grotesk + Inter)
+     ========================================================================== */
+  --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-numeric: 'Space Grotesk', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Font Scales (Fluid & Responsive with clamp) */
+  --text-xs: clamp(0.75rem, 0.72rem + 0.15vw, 0.8125rem);      /* 12px - 13px */
+  --text-sm: clamp(0.875rem, 0.84rem + 0.18vw, 0.9375rem);     /* 14px - 15px */
+  --text-base: clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);        /* 16px - 17px */
+  --text-lg: clamp(1.125rem, 1.06rem + 0.32vw, 1.25rem);       /* 18px - 20px */
+  --text-xl: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);          /* 20px - 24px */
+  --text-2xl: clamp(1.35rem, 1.2rem + 0.6vw, 1.875rem);       /* 21px - 30px */
+  --text-3xl: clamp(1.6rem, 1.4rem + 0.9vw, 2.375rem);        /* 25px - 38px */
+  --text-4xl: clamp(1.85rem, 1.6rem + 1.25vw, 2.875rem);      /* 29px - 46px */
+  --text-display: clamp(2rem, 1.65rem + 1.75vw, 3.75rem);     /* 32px - 60px */
+
+  /* Line Heights */
+  --leading-none: 1;
+  --leading-tight: 1.15;
+  --leading-snug: 1.3;
+  --leading-normal: 1.55;
+  --leading-relaxed: 1.7;
+
+  /* Font Weights */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-extrabold: 800;
+
+  /* ==========================================================================
+     Elevation & Shadows (Refined, telecom-grade depth without muddy blur)
+     ========================================================================== */
+  --shadow-sm: 0 1px 3px rgba(15, 27, 45, 0.04), 0 1px 2px rgba(15, 27, 45, 0.02);
+  --shadow-md: 0 4px 12px rgba(15, 27, 45, 0.06), 0 1px 3px rgba(15, 27, 45, 0.04);
+  --shadow-lg: 0 10px 28px rgba(15, 27, 45, 0.08), 0 3px 8px rgba(15, 27, 45, 0.04);
+  --shadow-xl: 0 20px 40px rgba(15, 27, 45, 0.1), 0 6px 14px rgba(15, 27, 45, 0.05);
+  --shadow-orange: 0 8px 24px rgba(245, 124, 0, 0.25);
+  --shadow-emerald: 0 8px 20px rgba(15, 157, 117, 0.2);
+
+  /* ==========================================================================
+     Border Radii (Clean, purposeful geometry — not generic bubbly cards)
+     ========================================================================== */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-pill: 9999px;
+
+  /* ==========================================================================
+     Spacing & Grid Units
+     ========================================================================== */
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-20: 5rem;     /* 80px */
+  --space-24: 6rem;     /* 96px */
+
+  /* Layout Containers */
+  --container-max: 1280px;
+  --container-narrow: 960px;
+  --gutter: clamp(1rem, 0.75rem + 1.2vw, 2.5rem);
+
+  /* Focus Ring (Section 1.3 Violet Focus Ring Rule) */
+  --focus-ring: 0 0 0 3px var(--tint-violet), 0 0 0 5px var(--color-violet);
+
+  /* Transitions */
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 150ms ease;
+  --transition-normal: 240ms var(--ease-spring);
+  --transition-slow: 400ms var(--ease-spring);
+}

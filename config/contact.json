@@ -1,0 +1,41 @@
+{
+  "company": {
+    "name": "Sevenseas Broadband",
+    "legalName": "Sevenseas Broadband Pvt. Ltd.",
+    "tagline": "Connecting Every Home",
+    "dotLicense": "DoT-ISP-MH-2024-8924",
+    "serviceArea": "Airoli, Navi Mumbai"
+  },
+  "contact": {
+    "primaryPhone": "9664985535",
+    "secondaryPhone": "7400222922",
+    "formattedPrimaryPhone": "+91 96649 85535",
+    "formattedSecondaryPhone": "+91 74002 22922",
+    "whatsappNumber": "9664985535",
+    "whatsappUrl": "https://wa.me/919664985535?text=Hi%20Sevenseas%20Broadband,%20I%20am%20interested%20in%20a%20new%20fiber%20connection",
+    "supportEmail": "support@sevenseasbroadband.in",
+    "salesEmail": "sales@sevenseasbroadband.in"
+  },
+  "location": {
+    "addressLine1": "Shop-1, Dharmjeevan Co-op Housing Society",
+    "landmark": "near Railway Station, Sector 3",
+    "locality": "Airoli",
+    "city": "Navi Mumbai",
+    "state": "Maharashtra",
+    "pincode": "400708",
+    "fullAddress": "Shop-1, Dharmjeevan Co-op Housing Society, near Railway Station, Sector 3, Airoli, Navi Mumbai, Maharashtra 400708."
+  },
+  "businessHours": {
+    "weekdays": "9:00 AM – 8:00 PM",
+    "sunday": "10:00 AM – 5:00 PM",
+    "emergencySupport": "24/7 Field Support"
+  },
+  "security": {
+    "turnstileSiteKey": "0x4AAAAAAAx_DUMMY_TURNSTILE_KEY",
+    "turnstileSecretKey": "0x4AAAAAAAx_DUMMY_SECRET_KEY",
+    "rateLimit": {
+      "windowMs": 900000,
+      "maxRequestsPerIp": 5
+    }
+  }
+}

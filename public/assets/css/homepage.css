@@ -1,0 +1,1130 @@
+/**
+ * Sevenseas Broadband — Phase 4 Homepage Styles
+ * Editorial residential aesthetics, timeline, coverage checker, and custom plan layouts
+ */
+
+/* ==========================================================================
+   Section 1: Clean White Navigation Bar & Mobile Call Button
+   ========================================================================== */
+.clean-nav-header {
+  background-color: rgba(255, 255, 255, 0.96);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(15, 27, 45, 0.04);
+  transition: all var(--transition-normal);
+}
+
+.clean-nav-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.mobile-call-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-pill);
+  background-color: var(--tint-orange);
+  color: var(--color-orange-text);
+  border: 1px solid rgba(245, 124, 0, 0.25);
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: all var(--transition-fast);
+}
+
+.mobile-call-btn:hover {
+  background-color: var(--color-orange);
+  color: #FFFFFF;
+}
+
+@media (min-width: 1024px) {
+  .mobile-call-btn {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   Section 2: Hero Section (Full-Width Cinematic Background Image Carousel)
+   ========================================================================== */
+.hero-slider-section {
+  position: relative;
+  width: 100%;
+  min-height: 640px;
+  height: clamp(660px, 82vh, 760px);
+  background-color: var(--color-navy);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.hero-slider-track {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+
+.hero-slide.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
+  pointer-events: auto;
+}
+
+/* Layer 1: Full-Width Background Photograph */
+.hero-slide-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.hero-slide-bg picture,
+.hero-slide-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.02);
+  transition: transform 7s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.hero-slide.active .hero-slide-bg picture,
+.hero-slide.active .hero-slide-bg img {
+  transform: scale(1.07);
+}
+
+/* Slide Specific Background Alignments */
+.hero-slide-1 .hero-slide-bg img { object-position: 75% center; }
+.hero-slide-2 .hero-slide-bg img { object-position: 80% center; }
+.hero-slide-3 .hero-slide-bg img { object-position: 75% center; }
+.hero-slide-4 .hero-slide-bg img { object-position: 85% center; }
+
+@media (max-width: 768px) {
+  .hero-slide-1 .hero-slide-bg img,
+  .hero-slide-2 .hero-slide-bg img,
+  .hero-slide-3 .hero-slide-bg img,
+  .hero-slide-4 .hero-slide-bg img {
+    object-position: 60% center;
+  }
+}
+
+/* Layer 2: Gradient Overlay (Dark Navy Fading to Subject) */
+.hero-slide-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: linear-gradient(
+    90deg,
+    rgba(15, 27, 45, 0.94) 0%,
+    rgba(15, 27, 45, 0.82) 42%,
+    rgba(15, 27, 45, 0.38) 75%,
+    rgba(15, 27, 45, 0.18) 100%
+  );
+}
+
+@media (max-width: 1024px) {
+  .hero-slide-overlay {
+    background: linear-gradient(
+      90deg,
+      rgba(15, 27, 45, 0.95) 0%,
+      rgba(15, 27, 45, 0.86) 55%,
+      rgba(15, 27, 45, 0.5) 100%
+    );
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-slide-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(15, 27, 45, 0.92) 0%,
+      rgba(15, 27, 45, 0.82) 50%,
+      rgba(15, 27, 45, 0.94) 100%
+    );
+  }
+}
+
+/* Layer 3: Foreground Content Container */
+.hero-content-wrap {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  padding-top: clamp(1rem, 2vh, 2rem);
+  padding-bottom: clamp(4.5rem, 8vh, 6rem);
+}
+
+.hero-content-box {
+  max-width: 620px;
+  color: #FFFFFF;
+}
+
+/* Eyebrow Pill */
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(15, 27, 45, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(245, 124, 0, 0.45);
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-orange);
+  margin-bottom: var(--space-4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.hero-eyebrow .pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-orange);
+  box-shadow: 0 0 0 0 rgba(245, 124, 0, 0.7);
+  animation: pulse-orange 2s infinite;
+}
+
+@keyframes pulse-orange {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(245, 124, 0, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(245, 124, 0, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(245, 124, 0, 0); }
+}
+
+/* Large Foreground Headline */
+.hero-slider-headline {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 1.8rem + 2.4vw, 3.75rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: #FFFFFF;
+  margin-top: 0;
+  margin-bottom: var(--space-4);
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.45);
+}
+
+.hero-slider-desc {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 0.95rem + 0.35vw, 1.2rem);
+  line-height: 1.6;
+  color: #E2E8F0;
+  margin-bottom: var(--space-6);
+  max-width: 540px;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+}
+
+/* Promotional Highlights Strip */
+.hero-chips-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: var(--space-8);
+}
+
+.hero-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #FFFFFF;
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.hero-chip .icon {
+  width: 14px;
+  height: 14px;
+  color: var(--color-emerald);
+}
+
+/* CTA Buttons */
+.hero-cta-group {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.btn-outline-white {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(255, 255, 255, 0.7);
+  color: #FFFFFF;
+  font-family: var(--font-heading);
+  font-size: var(--text-base);
+  font-weight: var(--weight-bold);
+  padding: 0.75rem 1.65rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  min-height: 48px;
+}
+
+.btn-outline-white:hover {
+  background: #FFFFFF;
+  color: var(--color-navy);
+  border-color: #FFFFFF;
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+/* Layer 4: Floating Notification Cards (Desktop) */
+.hero-floating-card {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .hero-floating-card {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    position: absolute;
+    right: 5%;
+    bottom: 22%;
+    z-index: 4;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: var(--radius-md);
+    padding: 0.9rem 1.25rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(15, 27, 45, 0.05);
+    max-width: 320px;
+    animation: heroCardFloat 5s ease-in-out infinite alternate;
+  }
+
+  .hero-floating-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-sm);
+    background: var(--tint-orange);
+    color: var(--color-orange);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .hero-floating-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .hero-floating-title {
+    font-family: var(--font-heading);
+    font-size: 0.875rem;
+    font-weight: 800;
+    color: var(--color-navy);
+    line-height: 1.2;
+  }
+
+  .hero-floating-sub {
+    font-size: 0.75rem;
+    color: var(--color-muted);
+    line-height: 1.3;
+  }
+}
+
+@keyframes heroCardFloat {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-10px); }
+}
+
+/* Layer 5: Curved Bottom White Boundary */
+.hero-curved-boundary {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 48px;
+  z-index: 5;
+  pointer-events: none;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.hero-curved-boundary svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Layer 6: Slider Navigation Controls (Indicators & Arrows) */
+.hero-slider-controls {
+  position: absolute;
+  bottom: clamp(1.2rem, 3vh, 2.2rem);
+  left: 0;
+  right: 0;
+  z-index: 6;
+}
+
+.hero-controls-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.hero-indicators-group {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.hero-indicator-btn {
+  background: transparent;
+  border: none;
+  padding: 0.5rem 0.25rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  touch-action: manipulation;
+  min-height: 44px;
+}
+
+.hero-indicator-bar {
+  width: 32px;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.3);
+  transition: width 0.3s ease, background-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-indicator-btn.active .hero-indicator-bar {
+  width: 56px;
+  background: var(--color-orange);
+}
+
+.hero-indicator-num {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.6);
+  transition: color 0.3s ease;
+}
+
+.hero-indicator-btn.active .hero-indicator-num {
+  color: #FFFFFF;
+}
+
+.hero-arrows-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hero-counter {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.85);
+  margin-right: 0.5rem;
+  letter-spacing: 0.05em;
+}
+
+.hero-nav-arrow {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(15, 27, 45, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #FFFFFF;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  touch-action: manipulation;
+}
+
+.hero-nav-arrow:hover {
+  background: var(--color-orange);
+  border-color: var(--color-orange);
+  color: #FFFFFF;
+  transform: scale(1.06);
+}
+
+/* Mobile Responsiveness for Slider */
+@media (max-width: 640px) {
+  .hero-slider-section {
+    min-height: 600px;
+    height: auto;
+    padding-top: 2rem;
+    padding-bottom: 5.5rem;
+  }
+
+  .hero-slider-headline {
+    font-size: clamp(1.85rem, 1.6rem + 1.8vw, 2.4rem);
+  }
+
+  .hero-chips-strip {
+    gap: 0.4rem;
+  }
+
+  .hero-chip {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.65rem;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .hero-cta-group .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero-indicator-bar {
+    width: 20px;
+  }
+
+  .hero-indicator-btn.active .hero-indicator-bar {
+    width: 36px;
+  }
+
+  .hero-indicator-num {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide {
+    transition: none !important;
+  }
+  .hero-slide-bg picture,
+  .hero-slide-bg img {
+    transition: none !important;
+    transform: none !important;
+  }
+  .hero-slide.active .hero-slide-bg picture,
+  .hero-slide.active .hero-slide-bg img {
+    transform: none !important;
+  }
+  .hero-floating-card {
+    animation: none !important;
+  }
+}
+
+/* ==========================================================================
+   Section 3: Trust and Benefits (Apple-inspired Spacious Editorial Strip)
+   ========================================================================== */
+.benefits-band {
+  background-color: var(--color-white);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  padding: clamp(4.5rem, 6.5vw, 6.5rem) 0;
+}
+
+.benefits-horizontal-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+}
+
+@media (min-width: 900px) {
+  .benefits-horizontal-layout {
+    grid-template-columns: repeat(4, 1fr);
+    align-items: stretch;
+  }
+}
+
+.benefit-block {
+  padding: 2.25rem 1.75rem;
+  border-radius: var(--radius-xl);
+  background: var(--color-bg);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-normal);
+}
+
+.benefit-block:hover {
+  background: #FFFFFF;
+  border-color: #CBD5E1;
+  box-shadow: 0 16px 36px rgba(15, 27, 45, 0.06);
+  transform: translateY(-3px);
+}
+
+.benefit-block .icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-4);
+}
+
+.benefit-block.accent-navy .icon-box { background-color: var(--tint-navy); color: var(--color-navy); }
+.benefit-block.accent-orange .icon-box { background-color: var(--tint-orange); color: var(--color-orange); }
+.benefit-block.accent-emerald .icon-box { background-color: var(--tint-emerald); color: var(--color-emerald); }
+.benefit-block.accent-violet .icon-box { background-color: var(--tint-violet); color: var(--color-violet); }
+
+.benefit-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-navy);
+  margin-top: 0;
+  margin-bottom: var(--space-2);
+  letter-spacing: -0.02em;
+}
+
+.benefit-desc {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--color-muted);
+  margin: 0;
+}
+
+/* ==========================================================================
+   Section 4: Broadband Plans (Apple-style Product Comparison Cards)
+   ========================================================================== */
+.custom-plans-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  align-items: stretch;
+}
+
+@media (min-width: 860px) {
+  .custom-plans-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.plan-card-custom {
+  background-color: var(--color-white);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border);
+  padding: 3rem 2.25rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(15, 27, 45, 0.03);
+  transition: all var(--transition-normal);
+}
+
+.plan-card-custom:hover {
+  box-shadow: 0 20px 44px rgba(15, 27, 45, 0.08);
+  transform: translateY(-4px);
+}
+
+/* Starter: Navy */
+.plan-card-starter {
+  border-top: 4px solid var(--color-navy);
+}
+
+/* Popular: Orange (Featured elevated with distinctive brand accent) */
+.plan-card-popular {
+  border: 2px solid var(--color-orange);
+  box-shadow: 0 16px 40px rgba(245, 124, 0, 0.1);
+}
+
+.popular-badge-pin {
+  position: absolute;
+  top: -15px;
+  right: 24px;
+  background-color: var(--color-orange);
+  color: #FFFFFF;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.35rem 1rem;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 14px rgba(245, 124, 0, 0.35);
+  letter-spacing: 0.04em;
+}
+
+/* Premium: Violet */
+.plan-card-premium {
+  border-top: 4px solid var(--color-violet);
+}
+
+.plan-speed-pill {
+  font-family: var(--font-heading);
+  font-size: 2.75rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-top: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.plan-price-display {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.plan-price-num {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 2.2rem + 1vw, 3rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.plan-price-cycle {
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+  font-weight: 500;
+}
+
+/* Plan Feature Checklist (Apple Hairline Separators) */
+.plan-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  font-size: 0.875rem;
+}
+
+.plan-checklist li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--color-ink);
+  padding: 0.65rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.plan-checklist li:last-child {
+  border-bottom: none;
+}
+
+/* ==========================================================================
+   Section 5: Long-term Plans Table & Responsive Mobile Cards
+   ========================================================================== */
+.longterm-table-wrapper {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  overflow-x: auto;
+  box-shadow: 0 4px 20px rgba(15, 27, 45, 0.03);
+}
+
+.longterm-pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: var(--text-sm);
+}
+
+.longterm-pricing-table th,
+.longterm-pricing-table td {
+  padding: 1.25rem 1.75rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.longterm-pricing-table th {
+  background-color: var(--tint-navy);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  color: var(--color-navy);
+  font-size: var(--text-sm);
+  letter-spacing: 0.02em;
+}
+
+.longterm-pricing-table tbody tr:hover {
+  background-color: rgba(247, 248, 252, 0.7);
+}
+
+.savings-tag {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--tint-emerald);
+  color: var(--color-emerald-text);
+  font-weight: 800;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-pill);
+  margin-left: var(--space-2);
+}
+
+.popular-tag {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--tint-orange);
+  color: var(--color-orange-text);
+  font-weight: 800;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-pill);
+  margin-left: var(--space-2);
+}
+
+/* ==========================================================================
+   Section 7: Lifestyle 4 Categories (Apple-style Editorial Magazine Layout)
+   ========================================================================== */
+.lifestyle-magazine-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+}
+
+@media (min-width: 900px) {
+  .lifestyle-magazine-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.lifestyle-item-card {
+  background: var(--color-white);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(15, 27, 45, 0.03);
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-normal);
+}
+
+.lifestyle-item-card:hover {
+  box-shadow: 0 20px 40px rgba(15, 27, 45, 0.08);
+  transform: translateY(-4px);
+}
+
+.lifestyle-item-img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+}
+
+.lifestyle-item-body {
+  padding: 2.25rem 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* ==========================================================================
+   Section 8: Coverage Availability (Airoli Verified vs Unverified)
+   ========================================================================== */
+.coverage-card-box {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: clamp(2rem, 1.8rem + 2vw, 3.5rem);
+  box-shadow: 0 8px 32px rgba(15, 27, 45, 0.05);
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   Section 9: How to Get Connected (Apple-inspired Minimal Process)
+   ========================================================================== */
+.connection-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  position: relative;
+}
+
+@media (min-width: 860px) {
+  .connection-timeline {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: var(--space-6);
+  }
+
+  .connection-timeline::before {
+    content: '';
+    position: absolute;
+    top: 32px;
+    left: 48px;
+    right: 48px;
+    height: 2px;
+    background: var(--color-border);
+    z-index: 1;
+  }
+}
+
+.timeline-step {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  background-color: var(--color-white);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: var(--radius-xl);
+  padding: 2.25rem 1.75rem;
+  box-shadow: 0 4px 16px rgba(15, 27, 45, 0.03);
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-normal);
+}
+
+.timeline-step:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px rgba(15, 27, 45, 0.06);
+}
+
+.timeline-step-num {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.1rem;
+  margin-bottom: var(--space-4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.timeline-step:nth-child(1) .timeline-step-num { background: var(--color-navy); color: #FFFFFF; }
+.timeline-step:nth-child(2) .timeline-step-num { background: var(--color-orange); color: #FFFFFF; }
+.timeline-step:nth-child(3) .timeline-step-num { background: var(--color-violet); color: #FFFFFF; }
+.timeline-step:nth-child(4) .timeline-step-num { background: var(--color-emerald); color: #FFFFFF; }
+
+/* ==========================================================================
+   Section 11: Bespoke Purple Ribbon CTA Section (Reference Matched)
+   ========================================================================== */
+.purple-cta-section {
+  position: relative;
+  background-color: #FFFFFF;
+  padding: clamp(64px, 7.5vw, 105px) 24px;
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Purple Decorative Shapes — Behind Content */
+.purple-cta-ribbon {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  user-select: none;
+}
+
+.purple-cta-ribbon-left {
+  top: -30px;
+  left: -40px;
+  width: clamp(240px, 28vw, 420px);
+  height: clamp(240px, 28vw, 420px);
+}
+
+.purple-cta-ribbon-right {
+  bottom: -30px;
+  right: -40px;
+  width: clamp(240px, 28vw, 420px);
+  height: clamp(240px, 28vw, 420px);
+}
+
+@media (max-width: 991px) {
+  .purple-cta-ribbon-left {
+    top: -50px;
+    left: -70px;
+    width: clamp(200px, 32vw, 300px);
+    height: clamp(200px, 32vw, 300px);
+  }
+  .purple-cta-ribbon-right {
+    bottom: -50px;
+    right: -70px;
+    width: clamp(200px, 32vw, 300px);
+    height: clamp(200px, 32vw, 300px);
+  }
+}
+
+@media (max-width: 640px) {
+  .purple-cta-section {
+    padding: 64px 20px;
+  }
+  .purple-cta-ribbon-left {
+    top: -60px;
+    left: -110px;
+    opacity: 0.75;
+  }
+  .purple-cta-ribbon-right {
+    bottom: -60px;
+    right: -110px;
+    opacity: 0.75;
+  }
+}
+
+/* Centered Text Container (~640px wide) */
+.purple-cta-container {
+  position: relative;
+  z-index: 2;
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Pill Label: Reliable Fiber Broadband */
+.purple-cta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background-color: #F4EFFF;
+  color: #7C3AED;
+  border: 1px solid #E9D5FF;
+  padding: 5px 14px;
+  border-radius: 9999px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 2px rgba(124, 58, 237, 0.06);
+}
+
+.purple-cta-pill-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+/* Main Heading (48-52px desktop, 30-34px mobile, weight 500, tight line-height ~1.08) */
+.purple-cta-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(30px, 4.3vw, 50px);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: #111827;
+  margin: 0 0 16px 0;
+}
+
+/* Supporting Paragraph (~500px wide, 15-16px, muted gray, comfortable line spacing) */
+.purple-cta-desc {
+  font-family: var(--font-body);
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: #64748B;
+  max-width: 500px;
+  margin: 0 auto 32px auto;
+}
+
+/* CTA Buttons Container (Side by side, centered, 12-16px gap) */
+.purple-cta-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* Shared Button Properties (Height 46-48px, 8px corner radii, balanced padding) */
+.purple-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 0 24px;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+.purple-cta-btn:focus-visible {
+  outline: 2px solid #7C3AED;
+  outline-offset: 3px;
+}
+
+/* "Call Now": Filled Purple Gradient, White Text, Small Phone Icon */
+.purple-cta-btn-call {
+  background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%);
+  color: #FFFFFF !important;
+  border: 1px solid transparent;
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.28);
+}
+
+.purple-cta-btn-call:hover {
+  background: linear-gradient(135deg, #6D28D9 0%, #5B21B6 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.38);
+}
+
+/* "WhatsApp Us": White Background, Purple Border & Text, Small WhatsApp Icon */
+.purple-cta-btn-whatsapp {
+  background: #FFFFFF;
+  color: #7C3AED !important;
+  border: 1.5px solid #7C3AED;
+  box-shadow: 0 1px 3px rgba(15, 27, 45, 0.04);
+}
+
+.purple-cta-btn-whatsapp:hover {
+  background: #F4EFFF;
+  border-color: #6D28D9;
+  color: #6D28D9 !important;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 480px) {
+  .purple-cta-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  .purple-cta-btn {
+    width: 100%;
+  }
+}
+

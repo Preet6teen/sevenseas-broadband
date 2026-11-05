@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Environment and sensitive keys
+.env
+.env.*
+!.env.example
+
+# Temporary and build directories
+.next/
+out/
+build/
+dist/
+dist_hostinger/
+*.zip
+
+# Private Lead Database & Storage
+data/leads.db
+data/leads.json
+data/*.sqlite
+data/*.db
+data/backups/
+data/ratelimit/
+
+# Logs & OS artifacts
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+.DS_Store
+Thumbs.db

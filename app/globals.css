@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --color-navy: #1E3050;
+  --color-orange: #F57C00;
+  --color-emerald: #0F9D75;
+  --color-violet: #5B3FD1;
+  --color-bg: #F7F8FC;
+  --color-surface: #FFFFFF;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: #0F1B2D;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--color-navy);
+}

@@ -1,0 +1,187 @@
+================================================================================
+SEVENSEAS BROADBAND — HOSTINGER FILE MANAGER DEPLOYMENT MANUAL
+================================================================================
+Package File : sevenseas-hostinger-deploy.zip
+Target Host  : Hostinger Shared / Cloud / WordPress Hosting (Apache + PHP 8.x)
+Target Path  : public_html/
+Domain       : sevenseasbroadband.in (or your primary domain)
+Created Date : November 2026
+================================================================================
+
+OVERVIEW
+--------------------------------------------------------------------------------
+This deployment package contains the complete, production-ready Sevenseas 
+Broadband custom website. It is pre-configured with:
+- All 16 optimized HTML pages with Space Grotesk + Inter typography
+- Full responsive design (mobile bottom bar, desktop sticky nav, ribbon CTA)
+- Complete visual assets (high-res images, SVG icons, CSS, and JS)
+- Production Apache .htaccess (HTTPS enforcement, clean URLs, caching, gzip, security)
+- Standalone PHP Lead Generation API (api/enquiry.php) with spam protection,
+  rate limiting, and SQLite/JSON lead storage
+- Pre-configured WhatsApp & Phone click-to-call integrations:
+  • Primary Call: +91 96649 85535 (tel:9664985535)
+  • Secondary Call: +91 74002 22922 (tel:7400222922)
+  • WhatsApp: https://wa.me/919664985535
+
+--------------------------------------------------------------------------------
+STEP 1: BACK UP ANY EXISTING WEBSITE FILES (OPTIONAL BUT RECOMMENDED)
+--------------------------------------------------------------------------------
+1. Log in to your Hostinger hPanel (https://hpanel.hostinger.com).
+2. Go to Websites -> Manage -> Files -> File Manager.
+3. Open the "public_html" directory.
+4. If you have an existing site or files you wish to keep:
+   - Select all files.
+   - Click the "Compress / Archive" icon (or right-click -> Archive).
+   - Name it "backup-previous-site.zip".
+   - Download the backup ZIP to your computer or move it to a safe backup folder.
+5. If you see default files like "default.php" or "hosting-starter...", you can 
+   safely delete them so that public_html is clean.
+
+--------------------------------------------------------------------------------
+STEP 2: UPLOAD SEVENSEAS-HOSTINGER-DEPLOY.ZIP
+--------------------------------------------------------------------------------
+1. In Hostinger File Manager, ensure you are inside:
+   /public_html
+2. In the top navigation bar of File Manager, click the "Upload" icon (arrow pointing up).
+3. Select "File".
+4. Browse your local computer and choose:
+   sevenseas-hostinger-deploy.zip
+5. Wait for the upload progress bar to reach 100%.
+
+--------------------------------------------------------------------------------
+STEP 3: EXTRACT FILES DIRECTLY INTO PUBLIC_HTML
+--------------------------------------------------------------------------------
+1. In File Manager, right-click "sevenseas-hostinger-deploy.zip".
+2. Select "Extract" (or click the Extract icon in the toolbar).
+3. In the popup dialog asking for destination path:
+   - Make sure the destination path is set to:
+     /public_html
+     (or leave the folder name blank so files extract directly into public_html).
+4. Click "Extract".
+5. IMPORTANT VERIFICATION:
+   Ensure that "index.html" is located directly inside /public_html.
+   You should see:
+   /public_html/index.html
+   /public_html/about.html
+   /public_html/plans.html
+   /public_html/contact.html
+   /public_html/assets/
+   /public_html/public/
+   /public_html/api/
+   /public_html/config/
+   /public_html/data/
+   /public_html/.htaccess
+   /public_html/robots.txt
+   /public_html/sitemap.xml
+
+   * If the files accidentally extracted into a subfolder (e.g. public_html/dist_hostinger/),
+     select all items inside that subfolder, click "Move", and select /public_html as target.
+
+6. Once extracted, you can delete or keep "sevenseas-hostinger-deploy.zip" to save space.
+
+--------------------------------------------------------------------------------
+STEP 4: UNHIDE & VERIFY .HTACCESS
+--------------------------------------------------------------------------------
+Hostinger File Manager hides dotfiles (.htaccess) by default on some accounts.
+1. In Hostinger File Manager, check top-right Settings (gear icon) or View menu.
+2. Ensure "Show Hidden Files (dotfiles)" is ENABLED.
+3. Verify that ".htaccess" is present in /public_html/.
+   The .htaccess file is crucial for:
+   - Automatic 301 redirect to HTTPS (SSL)
+   - Clean URLs (allowing https://yourdomain.com/plans without typing .html)
+   - Transparent routing of asset requests
+   - Protecting the /data/ and /config/ directories from unauthorized browser downloads
+
+--------------------------------------------------------------------------------
+STEP 5: VERIFY FILE & DIRECTORY PERMISSIONS
+--------------------------------------------------------------------------------
+Hostinger sets permissions automatically upon extraction, but please double check:
+1. Standard Folders (/assets, /public, /api): Permission 755 (drwxr-xr-x)
+2. Standard Files (index.html, .htaccess, etc.): Permission 644 (-rw-r--r--)
+3. Lead Storage Directory (/public_html/data/):
+   - Right-click the "data" folder -> Permissions.
+   - Set to 775 or 755 (ensure Owner & Group have Write permission so the PHP
+     script can write leads to leads.json and leads.db).
+   - Also ensure /public_html/data/ratelimit/ exists and has write permission.
+
+--------------------------------------------------------------------------------
+STEP 6: CHECK PHP VERSION IN HPANEL
+--------------------------------------------------------------------------------
+1. In hPanel, go to Advanced -> PHP Configuration.
+2. Ensure PHP Version is set to PHP 8.1, 8.2, or 8.3 (PHP 8.2 recommended).
+3. Ensure the following standard PHP extensions are enabled (enabled by default in Hostinger):
+   - pdo_sqlite (for SQLite lead logging)
+   - json
+   - curl (for Cloudflare Turnstile verification)
+   - mbstring
+
+--------------------------------------------------------------------------------
+STEP 7: CLOUDFLARE TURNSTILE & EMAIL NOTIFICATIONS (OPTIONAL ENHANCEMENTS)
+--------------------------------------------------------------------------------
+1. Turnstile Bot Protection:
+   - The enquiry form includes a test Turnstile site key and simulated bypass.
+   - For live Turnstile: Open /public_html/assets/js/enquiry.js and update
+     `turnstile.render(el, { sitekey: 'YOUR_CLOUDFLARE_SITEKEY' })`.
+   - Update `TURNSTILE_SECRET_KEY` in /public_html/api/enquiry.php.
+2. Email Notifications:
+   - In /public_html/api/enquiry.php (line ~180), the recipient email is set to:
+     support@sevenseasbroadband.in
+   - If you want submissions forwarded to an additional email (e.g. Gmail),
+     simply add or change the email address in that file.
+
+--------------------------------------------------------------------------------
+STEP 8: TEST AND VERIFY LIVE WEBSITE
+--------------------------------------------------------------------------------
+Open a browser (preferably Incognito / Private window) and perform this checklist:
+
+1. [ ] Homepage Load: Visit https://yourdomain.com/
+       - Space Grotesk headings & Inter body text render crisply.
+       - Full-width hero background slider auto-advances smoothly.
+       - Bespoke Purple Ribbon CTA section displays with smooth violet ribbons.
+2. [ ] HTTPS Redirection: Try typing http://yourdomain.com (HTTP).
+       - Confirms automatic redirect to https:// (secure lock icon).
+3. [ ] Clean URLs & Direct Refresh:
+       - Visit https://yourdomain.com/plans
+       - Refresh the page (F5 / Cmd+R). Confirms page reloads without 404.
+       - Check other pages: /about, /fiber-internet, /residential, /business,
+         /installation, /contact, /faq, /localities.
+4. [ ] Phone & WhatsApp Links:
+       - Click "Call Now" on desktop/mobile -> triggers tel:9664985535.
+       - Click "WhatsApp Us" -> opens WhatsApp chat with pre-filled message.
+5. [ ] Mobile Bottom Action Strip:
+       - Resize browser to 390px (or open on phone).
+       - Bottom bar with "Call", "WhatsApp", and "Get Connected" is sticky,
+         with safe-area inset padding, without overlapping footer links.
+6. [ ] Interactive Broadband Plan Selector:
+       - On https://yourdomain.com/plans, switch between 1 Month, 3 Months,
+         6 Months, and 12 Months billing toggles.
+       - Verify instant price calculations (₹499/mo, ₹599/mo, ₹699/mo) and GST notes.
+7. [ ] Lead Submission Form:
+       - Fill in Name: "Test Customer", Mobile: "9876543210", Locality: "Sector 3 Airoli".
+       - Click "Submit Enquiry".
+       - Form displays instant Success badge + WhatsApp Direct Connect button.
+       - Check /public_html/data/leads.json or leads.db in File Manager to see the saved lead.
+
+--------------------------------------------------------------------------------
+TROUBLESHOOTING & COMMON QUESTIONS
+--------------------------------------------------------------------------------
+Q: Why do I see a 404 error when clicking on /plans or /about?
+A: Your .htaccess file is either missing or hidden. Follow Step 4 to show hidden 
+   files in File Manager and confirm .htaccess is directly inside /public_html.
+
+Q: Why do images or CSS fail to load?
+A: Check that /public_html/public/assets/ and /public_html/assets/ both exist. 
+   Our package provides both directories so relative paths work automatically.
+
+Q: How do I export or view customer leads?
+A: In Hostinger File Manager, download /public_html/data/leads.json. It contains 
+   a structured JSON ledger of all incoming customer enquiries with timestamps, 
+   plan selections, and phone numbers.
+
+Q: Need to update contact numbers in the future?
+A: Contact details are centralized in /public_html/config/contact.json and across 
+   page templates. The primary business number is 9664985535 (Airoli Branch).
+
+================================================================================
+DEPLOYMENT PACKAGE READY FOR HOSTINGER FILE MANAGER
+================================================================================
